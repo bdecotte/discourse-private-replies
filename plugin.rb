@@ -93,7 +93,7 @@ after_initialize do
   # hide posts from search results
   module PatchSearch
   
-    def execute(readonly_mode)
+    def execute(readonly_mode: @readonly_mode)
       super
 
       if SiteSetting.private_replies_enabled && !DiscoursePrivateReplies.can_see_all_posts?(@guardian.user, nil)
